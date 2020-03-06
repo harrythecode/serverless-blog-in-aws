@@ -33,5 +33,7 @@ Error: error creating CloudFront Distribution: InvalidViewerCertificate: The spe
 <img alt="2020-03-06 Cloudfront & Route53" src="../docs/images/20200306-02-route53-cloudfront.png" width="300">
 
 ### How to access your blog?
-1. Upload a `index.html` file into your S3 bucket.
+1. Upload a `/public/index.html` file into your S3 bucket.
 2. Your contents won't be applied immediately and you need to wait for a while due to caching of cloudfront.
+
+You can also have the default 404 page with uploading a `/public/404.html` file.
