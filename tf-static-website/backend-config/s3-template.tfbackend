@@ -1,0 +1,20 @@
+###
+# Backend settings
+
+# Default Region that you want to deploy items
+region         = "<your-value-of>"
+
+# Bucket name that you created by terraforming the tf-init scripts.
+bucket         = "<your-value-of>"
+
+# Key name that you want to store your state file in the bucket (e.g.,) static-website/terraform.tfstate
+key            = "<your-value-of>"
+
+# ARN for Terraforming (e.g.,) arn:aws:iam::<aws_accound_id>:role/Administrator
+role_arn       = "<your-value-of>"
+
+# DynamoDB Table Name that you created by terraforming the tf-init scripts.
+dynamodb_table = "<your-value-of>"
+
+# //
+###

@@ -5,5 +5,9 @@
 *.tfstate
 *.tfstate.*
 
+# Default values
+terraform.tfvars
+s3.tfbackend
+
 # Mac
 .DS_Store
