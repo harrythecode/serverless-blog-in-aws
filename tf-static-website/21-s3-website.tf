@@ -9,6 +9,11 @@ resource "aws_s3_bucket" "ops_website" {
     enabled = true
   }
 
+  website {
+    index_document = "index.html"
+    error_document = "public/404.html"
+  }
+
   lifecycle_rule {
     id      = "clean-up"
     enabled = true
@@ -48,9 +53,10 @@ resource "aws_s3_bucket_policy" "ops_website_bucket_policy" {
 
 data "aws_iam_policy_document" "ops_website_policy_document" {
   statement {
+    sid = "internalAccess"
     principals {
       type        = "AWS"
-      identifiers = [var.tf_state_role_arn, aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn]
+      identifiers = [ var.tf_state_role_arn ]
     }
     actions = [
       "s3:GetObject",
@@ -62,15 +68,30 @@ data "aws_iam_policy_document" "ops_website_policy_document" {
         aws_s3_bucket.ops_website.arn
     ]
   }
+
+  statement {
+    sid = "externalAccess"
+    principals {
+      type        = "AWS"
+      identifiers = ["*"]
+    }
+    actions = [
+      "s3:GetObject",
+    ]
+    resources = [
+        "${aws_s3_bucket.ops_website.arn}/public/*"
+    ]
+  }
+
   provider = "aws.ops-blog"
 }
 
 resource "aws_s3_bucket_public_access_block" "ops_website" {
   bucket                  = aws_s3_bucket.ops_website.id
   block_public_acls       = true
-  block_public_policy     = true
+  block_public_policy     = false
   ignore_public_acls      = true
-  restrict_public_buckets = true
+  restrict_public_buckets = false
   
   provider = "aws.ops-blog"
 }
