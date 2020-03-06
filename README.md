@@ -39,17 +39,24 @@ AdministratorAccess (AWS Managed)
 - To have your DNS domain.
 
 ### Overview
-<TBD>
+
+Here is AWS architecture overview of this project.
+
+![2020-03-06 ACM & Route53](docs/images/20200306-03-serverless-blog-overview.png)
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+### Initialize Resources for Terraform
+1. Go to the `tf-init` folder
+2. Follow the intructions under the README.md
+
+### Setup Serverless Blog Architecture
+1. Go to the `tf-static-website` folder
+2. Follow the intructions under the README.md
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Terraform](https://www.terraform.io/) - Used for deployment
 
 ## Authors
 
