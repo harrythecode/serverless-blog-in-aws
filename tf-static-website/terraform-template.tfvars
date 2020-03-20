@@ -18,7 +18,7 @@ aws_account_id = "<your-value-of>"
 # ARN for Terraforming (e.g.,) arn:aws:iam::<aws_accound_id>:role/Administrator
 tf_state_role_arn = "<your-value-of>"
 
-# Bucket name that you created by terraforming the tf-init scripts.
+# Bucket name that you intend to have a static website which is NOT relevant to the tf-init's one.
 aws_s3_bucketname = "<your-value-of>"
 
 # Domain name of your website. (e.g.,) example.com
